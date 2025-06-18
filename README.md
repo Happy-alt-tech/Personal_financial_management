@@ -5,7 +5,7 @@ A simple and user-friendly web application to manage personal income and expense
 ## 🔧 Tech Stack
 - **Frontend**: HTML, CSS, JavaScript  
 - **Backend**: PHP  
-- **Database**: (Add here if used, e.g., MySQL)
+- **Database**:  MySQL
 
 ## 🚀 Features
 - ✅ User registration and login system
