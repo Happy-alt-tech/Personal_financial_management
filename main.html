@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bottom Navbar</title>
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: "Montserrat";
+      background-color: black;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    body::-webkit-scrollbar {
+  display: block;
+  width: 8px;
+  background: #95c11e;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: #fff;
+
+  border-radius: 50px;
+}
+    iframe {
+      width: 100%;
+      height: calc(100vh - 70px);
+      border: none;
+    }
+    .bottom-navbar {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background: linear-gradient(to right, #124802e4, #2c3026);
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 15px 0;
+      z-index: 1000;
+    }
+    .nav-item {
+      text-decoration: none;
+      color: white;
+      font-size: 14px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 10px;
+      border-radius: 50%;
+      transition: background 0.3s ease-in-out;
+    }
+    .nav-item:hover, .nav-item:focus {
+      background: rgba(253, 251, 251, 0.2);
+    }
+    .nav-item i {
+      font-size: 24px;
+      color: #86ff05;
+      transition: color 0.3s;
+    }
+    .nav-item:hover i, .nav-item:focus i {
+      color: #f5f5f3;
+    }
+  </style>
+</head>
+<body>
+  <iframe name="content-frame" src="ds.html"></iframe>
+  <div class="bottom-navbar">
+    <a href="ds.html" target="content-frame" class="nav-item"><i class="bx bx-home"></i><span>Dashboard</span></a>
+    <a href="income_expense_chart.php" target="content-frame" class="nav-item"><i class="bx bx-calendar-week"></i><span>Summary</span></a>
+    <a href="st.html" target="content-frame" class="nav-item"><i class="bx bx-cog"></i><span>Settings</span></a>
+    <a href="update_profile.php" target="content-frame" class="nav-item"><i class='bx bx-user-circle'></i><span>Profile</span></a>
+    <a href="feedback1.php" target="content-frame" class="nav-item"><i class='bx bx-smile'></i><span>Feedback</span></a>
+  </div>
+</body>
+</html>

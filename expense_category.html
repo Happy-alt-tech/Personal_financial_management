@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Category Form</title>
+    <style>
+        body {
+            background-image: url("http://localhost/PHP/simple_futuristic_network_design.jpg");
+            background-attachment: fixed;
+            background-size: 100% 100%;
+            justify-content: center;
+            align-items: center;
+            font-family: "montserrat-regular";
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .form-container {
+            height: 80%;
+            width: 70%;
+            background: rgba(59, 103, 2, 0.2); /* Semi-transparent background */
+            backdrop-filter: blur(10px); /* Glass effect */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            position: relative;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        select, 
+        input[type="text"], 
+        input[type="number"], 
+        input[type="date"], 
+        textarea {
+            width: 100%; /* सब इनपुट एक ही साइज में आएंगे */
+             padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #11ff00;
+            font-size: 16px; /* टेक्स्ट साइज भी सेट किया */
+            box-sizing: border-box; /* बॉर्डर और पैडिंग को ध्यान में रखेगा */
+                }
+        button {
+            background-color: #81ff02;
+            color: rgb(12, 12, 12);
+            border: none;
+            cursor: pointer;
+        }
+        .close-btn {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background: red;
+            color: white;
+            border: none;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+            padding: 0;
+        }
+        .close-btn:hover {
+            background: darkred;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <button class="close-btn" onclick="window.location.href='main.html'">X</button>
+
+        <h2>Add Expense</h2>
+        <form  id="expenseForm"   action="expense_category.php" method="POST">
+            <!-- User Name (Hidden Field) -->
+            <input type="hidden" id="name" name="name" value="abcd">
+        
+            <div class="form-group">
+                <label for="category">Select Category:</label>
+                <select id="category" name="category" required>
+                    <optgroup label="Essential Expenses (Necessities)">
+                        <option value="food">Food & Groceries</option>
+                        <option value="rent">Rent / Mortgage</option>
+                        <option value="utilities">Utilities (Electricity, Water, Gas, Internet)</option>
+                        <option value="transportation">Transportation (Fuel, Public Transport, Maintenance)</option>
+                        <option value="healthcare">Healthcare (Doctor, Medicine, Insurance)</option>
+                    </optgroup>
+                    <optgroup label="Lifestyle Expenses">
+                        <option value="dining">Dining Out & Takeaways</option>
+                        <option value="entertainment">Entertainment (Movies, Games, Subscriptions)</option>
+                        <option value="shopping">Shopping (Clothing, Accessories, Electronics)</option>
+                        <option value="gym">Gym & Fitness</option>
+                        <option value="hobbies">Hobbies & Leisure</option>
+                    </optgroup>
+                    <optgroup label="Financial Commitments">
+                        <option value="loan">Loan Payments</option>
+                        <option value="credit-card">Credit Card Bills</option>
+                        <option value="savings">Savings & Investments</option>
+                        <option value="taxes">Taxes</option>
+                    </optgroup>
+                    <optgroup label="Family & Personal Expenses">
+                        <option value="education">Education (School Fees, Books, Courses)</option>
+                        <option value="gifts">Gifts & Donations</option>
+                        <option value="childcare">Childcare & Baby Products</option>
+                        <option value="pets">Pet Expenses (Food, Vet, Grooming)</option>
+                    </optgroup>
+                    <optgroup label="Business & Work Expenses">
+                        <option value="office">Office Supplies</option>
+                        <option value="software">Software & Tools</option>
+                        <option value="travel">Travel & Accommodation (Work-related trips)</option>
+                        <option value="freelance">Freelance / Contract Work Payments</option>
+                    </optgroup>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="amount">Enter Amount:</label>
+                <input type="text" id="amount" name="amount" placeholder="Enter amount" required>
+            </div>
+            <div class="form-group">
+                <label for="date">Select Date:</label>
+                <input type="date" id="date" name="date" required>
+            </div>
+            <div class="form-group">
+                <label for="payment-method">Select Payment Method:</label>
+                <select id="payment_method" name="payment_method" required>
+                    <option value="cash">Cash</option>
+                    <option value="credit-card">Credit Card</option>
+                    <option value="debit-card">Debit Card</option>
+                    <option value="bank-transfer">Bank Transfer</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" placeholder="Enter description..." rows="3"></textarea>
+            </div>
+            <button type="submit">Add Expense</button>
+        </form>
+        
+    </div>
+    <script>
+        document.getElementById("date").setAttribute("max", new Date().toISOString().split("T")[0]);
+        document.getElementById("expenseForm").addEventListener("submit", function (event) {
+            event.preventDefault(); // Form submit hone se pehle rokna
+            var formData = new FormData(this);
+            
+            fetch("expense_category.php", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.text())
+            .then(data => {
+                alert(data);
+                window.location.reload(); // Form submit hone ke baad reload
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    </script>
+    
+    
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management</title>
+    <style>
+        body {
+            font-family: "montserrat-regular";
+            background: black;
+            color: white;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            background: rgba(26, 26, 26, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 255, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #008000;
+            padding-bottom: 10px;
+        }
+
+        .header h2 {
+            margin: 0;
+        }
+
+        .user-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .user-table th, .user-table td {
+            border: 1px solid white;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .user-table th {
+            background: linear-gradient(135deg, #004d00, #008000);
+            color: white;
+        }
+
+        .btn-accept, .btn-reject {
+            padding: 8px 15px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            text-transform: uppercase;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .btn-accept {
+            background: #00ff00;
+            color: black;
+        }
+
+        .btn-accept:hover {
+            background: #00cc00;
+            transform: scale(1.1);
+        }
+
+        .btn-reject {
+            background: #ff0000;
+            color: white;
+        }
+
+        .btn-reject:hover {
+            background: #cc0000;
+            transform: scale(1.1);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <h2>User Management</h2>
+            <p>Total user: <span id="total-user">0</span></p>
+        </div>
+
+        <!-- Pending Users Table -->
+        <h3>Pending Users</h3>
+        <table class="user-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Username</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="pending-user-list">
+                <!-- Pending Users dynamically added -->
+            </tbody>
+        </table>
+
+        <!-- Approved Users Table -->
+        <h3>Approved Users</h3>
+        <table class="user-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody id="approved-user-list">
+                <!-- Approved Users dynamically added -->
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

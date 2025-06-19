@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-image: url("http://localhost/PHP/p5_converted.jpg");
+            background-attachment: fixed;
+            background-size: 100% 100%;
+            font-family: "montserrat-regular";
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+         /* .container {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+             margin-left: 280px; Space for the sidebar
+            width: calc(100vw - 280px);
+            max-width: 1400px;
+            margin-right: auto;
+            padding-bottom: 60px;
+        }  */
+        /* header {
+            background-color: #90f800;
+            color: rgb(0, 0, 0);
+            text-align: center;
+            padding: 20px;
+            width: 100%;
+            font-size: 24px;
+        } */
+        h1{
+            color:green;
+        }
+        /* footer {
+            background-color: #90f800;
+            color: rgb(0, 0, 0);
+            text-align: center;
+            padding: 20px;
+            font-size: 18px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        } */
+        main {
+            flex-grow: 1;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            padding: 40px; 
+            color: azure;
+            justify-content: space-between;
+        }
+        /* .summary-table {
+            top: 0;
+            background: #333;
+            color: rgb(47, 255, 0);
+            padding: 30px;
+            display: flex;
+            justify-content: space-around;
+            font-weight: bold;
+            font-size: 20px;
+        } */
+        .buttons {
+          
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: auto;
+            padding-bottom: 40px;
+        }
+        .btn {
+            padding: 20px 30px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 18px;
+        }
+        .btn:hover {
+            transform: scale(1.1);
+        }
+        .btn:active {
+            transform: scale(0.9);
+            transition: 0.1s;
+        }
+        .income-btn {
+            background: rgba(142, 251, 0, 0.2); /* Semi-transparent background */
+            backdrop-filter: blur(10px); /* Glass effect */
+            color:white;
+        }
+        .expense-btn {
+            background: rgba(142, 251, 0, 0.2); /* Semi-transparent background */
+            backdrop-filter: blur(10px); /* Glass effect */
+            color: white;
+        }
+        .category-btn {
+            background:  rgba(142, 251, 0, 0.2); /* Semi-transparent background */
+            backdrop-filter: blur(10px); /* Glass effect */
+            color: white;
+        }
+    </style>
+</head>
+<body background="img.jpg">
+    <div class="container">
+       
+        <main>
+            <!-- <div class="summary-table">
+                <div>Income: $<span id="income">0</span></div>
+                <div>Expense: $<span id="expense">0</span></div>
+                <div>Balance: $<span id="balance">0</span></div>
+            </div> -->
+            <div class="buttons">
+                <!-- <a href="income.html"><button class="btn income-btn">Add Income</button></a>
+                <a href="expense.html"><button class="btn expense-btn">Add Expense</button></a> -->
+                <a href="income.html"><button class="btn category-btn">Income  Form</button></a>
+                <a href="expense_category.html"><button class="btn category-btn">Expense Form</button></a>
+            </div>
+        </main>
+        <!-- <footer>
+            <p>"Empowering you to take control of your financial future, one decision at a time."<br> by-: Team FutureFunds</p>
+        </footer> -->
+    </div>
+</body>
+</html>
